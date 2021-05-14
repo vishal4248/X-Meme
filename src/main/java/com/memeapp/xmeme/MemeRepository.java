@@ -13,4 +13,6 @@ public interface MemeRepository extends JpaRepository<Meme, Integer> {
 
     @Query(value = "select * from meme order by posted_at desc,id desc", nativeQuery = true)
     List<Meme> getLatestMemes();
+
+    List<Meme> findByMadeBy(String madeBy);
 }

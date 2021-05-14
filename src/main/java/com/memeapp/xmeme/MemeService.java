@@ -43,4 +43,8 @@ public class MemeService {
     public void delete(int id) {
         memeRepository.deleteById(id);
     }
+
+    public List<Meme> getMemer(String creator) {
+        return memeRepository.findByMadeBy(creator);
+    }
 }

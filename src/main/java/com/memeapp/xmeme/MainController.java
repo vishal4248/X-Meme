@@ -24,7 +24,7 @@ public class MainController {
         memeService.addMeme(memeRequest);
     }
 
-    @GetMapping("/memes/{id}")
+    @GetMapping("/memes/id={id}")
     public Meme getMeme(@PathVariable("id") int id) {
         Optional<Meme> optionalMeme = memeService.getMeme(id);
         return optionalMeme.orElse(null);
@@ -33,6 +33,11 @@ public class MainController {
     @DeleteMapping("/memes/{id}")
     public void deleteMeme(@PathVariable("id") int id) {
         memeService.delete(id);
+    }
+
+    @GetMapping("/memes/{creator}")
+    public List<Meme> getMemesOfCreator(@PathVariable String creator) {
+        return memeService.getMemer(creator);
     }
 
 
